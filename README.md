@@ -30,3 +30,10 @@ Paid Rides Taken:       13      $26.75
 Full Cost Rides:        4       $11.00
 Cost per Ride:          N/A     $1.67
 ```
+
+## Pro Tip
+In your shell's RC file, add the line:
+```sh
+export LEDGER_PATH="..."
+```
+then run `source ~/.<shell>rc` and then you can run `ledgerMTA` without needing to provide the location of your records file each time.
