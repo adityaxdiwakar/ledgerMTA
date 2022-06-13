@@ -14,17 +14,18 @@ mv ledgerMTA /usr/local/bin/.
 ## Usage
 Simply run `ledgerMTA` with any additional arguments (i.e. `--begin` or `--end`) as they will be passed to ledger-cli. You also must pass your records file using the `LEDGER_PATH` environment variable.
 ```sh
-➜  LEDGER_PATH=records.ldg ledgerMTA
+export LEDGER_PATH=records.ldg
+➜  ledgerMTA
 Total Rides Taken:      34      $93.50
 Paid Rides Taken:       25      $49.75
 Full Cost Rides:        6       $16.50
 Cost per Ride:          N/A     $1.46
-➜  LEDGER_PATH=records.ldg ledgerMTA --begin 2022/06/06      
+➜  ledgerMTA --begin 2022/06/06      
 Total Rides Taken:      17      $46.75
 Paid Rides Taken:       12      $23.00
 Full Cost Rides:        2       $5.50
 Cost per Ride:          N/A     $1.35
-➜  LEDGER_PATH=records.ldg ledgerMTA --begin 2022/05/30 --end 2022/06/05 
+➜  ledgerMTA --begin 2022/05/30 --end 2022/06/05 
 Total Rides Taken:      16      $44.00
 Paid Rides Taken:       13      $26.75
 Full Cost Rides:        4       $11.00
