@@ -39,14 +39,24 @@ func main() {
 
 	farecapAmt, err := exec.Command("ledger", append(farecapArgs,
 		os.Args[1:]...)...).Output()
-	farecapSavings := dollarRegex.FindString(string(farecapAmt))[1:]
+	farecapSavings := dollarRegex.FindString(string(farecapAmt))
+	if farecapSavings == "" {
+		farecapSavings = "0"
+	} else {
+		farecapSavings = farecapSavings[1:]
+	}
 
 	boostArgs := strings.Split("-f "+path+"bal "+
 		"Expenses:Travel:Subway:Boost", " ")
 
 	boostAmt, err := exec.Command("ledger", append(boostArgs,
 		os.Args[1:]...)...).Output()
-	boostSavings := dollarRegex.FindString(string(boostAmt))[1:]
+	boostSavings := dollarRegex.FindString(string(boostAmt))
+	if boostSavings == "" {
+		boostSavings = "0"
+	} else {
+		boostSavings = boostSavings[1:]
+	}
 
 	fullAmt, erra := strconv.ParseFloat(totalValue, 64)
 	spentAmt, errb := strconv.ParseFloat(spentAmount, 64)
